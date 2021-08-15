@@ -25,7 +25,7 @@ app.use(helmet.xssFilter());
 //Index page (static HTML)
 app.route('/')
   .get(function (req, res) {
-    res.sendFile(process.cwd() + '/views/index.html');
+    return res.sendFile(process.cwd() + '/views/index.html');
   });
 
 //For FCC testing purposes
