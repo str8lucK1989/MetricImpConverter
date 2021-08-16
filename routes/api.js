@@ -18,24 +18,22 @@ module.exports = function (app) {
       
       if(initNum === "invalid number" && initUnit === "invalid unit") {
         res.json("invalid number and unit");
-      }
-
-      if(initNum === "invalid number") {
-        res.json("invalid number");
-      }
-
-      if(initUnit === "invalid unit") {
+      } else if (initNum === "invalid number"){
+          res.json("invalid number");
+      } else if(initUnit === "invalid unit") {
         res.json("invalid unit");
+      } else {
+        let responseObject = {}
+        responseObject['initNum'] = initNum
+        responseObject['initUnit'] = initUnit
+        responseObject['returnNum'] = returnNum
+        responseObject['returnUnit'] = returnUnit
+        responseObject['string'] = toString
+  
+        res.json(responseObject)
+
       }
 
-      let responseObject = {}
-      responseObject['initNum'] = initNum
-      responseObject['initUnit'] = initUnit
-      responseObject['returnNum'] = returnNum
-      responseObject['returnUnit'] = returnUnit
-      responseObject['string'] = toString
-
-      res.json(responseObject)
 
     });
 };

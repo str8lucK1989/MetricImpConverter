@@ -20,7 +20,7 @@ suite('Functional Tests', function() {
                 assert.approximately(res.body.returnNum, 2.64172, 0.1);
                 assert.equal(res.body.returnUnit, "gal");
             });
-            done();
+            return done();
         })
     });
 
@@ -32,7 +32,7 @@ suite('Functional Tests', function() {
                 if (err) console.error(err);
                 assert.equal(res.body, "invalid unit");
             });
-            done();
+            return done();
         });
 
         test("Convert 3/7.2/4kg (invalid number)", function(done) {
@@ -43,7 +43,7 @@ suite('Functional Tests', function() {
                 if (err) console.error(err);
                 assert.equal(res.body, "invalid number");
         });
-            done();
+            return done();
     });
     test("Convert 3/7.2/4kilomegagram (invalid number and unit)", function(done) {
         chai.request(server)
@@ -53,7 +53,7 @@ suite('Functional Tests', function() {
             if (err) console.error(err);
             assert.equal(res.body, "invalid number and unit");
     });
-        done();
+        return done();
 });
     test("Convert kg (no number)", function(done) {
         chai.request(server)
@@ -64,6 +64,6 @@ suite('Functional Tests', function() {
             assert.equal(res.body.initNum, 1)
             assert.equal(res.body.initUnit, "kg")
         });
-        done();
+        return done();
     });
 });
