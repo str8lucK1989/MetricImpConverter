@@ -31,15 +31,7 @@ app.route('/')
 //For FCC testing purposes
 fccTestingRoutes(app);
 
-setTimeout(function () {
-  try {
-    runner.run();
-  } catch(e) {
-    let error = e;
-      console.log('Tests are not valid:');
-      console.log(error);
-  }
-}, 5000);
+
 //Routing for API 
 apiRoutes(app);  
     

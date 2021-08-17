@@ -30,7 +30,7 @@ module.exports = function (app) {
         responseObject['returnUnit'] = returnUnit
         responseObject['string'] = toString
   
-        res.json(responseObject)
+        return res.json(responseObject)
 
       }
 
